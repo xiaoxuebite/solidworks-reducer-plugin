@@ -1,0 +1,722 @@
+[
+  {
+    "Name": "HT250 正火",
+    "Use": "齿轮",
+    "GearKind": "灰铸铁",
+    "Reference": {
+      "Tensile": "250",
+      "CoreHardness": "170 ～ 241",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "HT300 正火",
+    "Use": "齿轮",
+    "GearKind": "灰铸铁",
+    "Reference": {
+      "Tensile": "300",
+      "CoreHardness": "187 ～ 255",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "HT350 正火",
+    "Use": "齿轮",
+    "GearKind": "灰铸铁",
+    "Reference": {
+      "Tensile": "350",
+      "CoreHardness": "197 ～ 269",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "QT500-5 正火",
+    "Use": "齿轮",
+    "GearKind": "球墨铸铁",
+    "Reference": {
+      "Tensile": "500",
+      "CoreHardness": "147 ～ 241",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "QT600-2 正火",
+    "Use": "齿轮",
+    "GearKind": "球墨铸铁",
+    "Reference": {
+      "Tensile": "600",
+      "CoreHardness": "229 ～ 302",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "ZG310-570 正火",
+    "Use": "齿轮",
+    "GearKind": "铸钢",
+    "Reference": {
+      "Tensile": "580",
+      "Yield": "320",
+      "CoreHardness": "156 ～ 217",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "ZG340-640 正火",
+    "Use": "齿轮",
+    "GearKind": "铸钢",
+    "Reference": {
+      "Tensile": "650",
+      "Yield": "350",
+      "CoreHardness": "169 ～ 229",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "45 正火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "580",
+      "Yield": "290",
+      "CoreHardness": "162 ～ 217",
+      "Notes": "项目齿轮材料表。"
+    },
+    "Hardness": 220,
+    "Contact": 600,
+    "Bending": 180,
+    "Source": "插件原设计默认值，使用前按工况核定"
+  },
+  {
+    "Name": "ZG340-640 调质",
+    "Use": "齿轮",
+    "GearKind": "铸钢",
+    "Reference": {
+      "Tensile": "700",
+      "Yield": "380",
+      "CoreHardness": "241 ～ 269",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "45 调质",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "650",
+      "Yield": "360",
+      "CoreHardness": "217 ～ 255",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "30CrMnSi 调质",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "1100",
+      "Yield": "900",
+      "CoreHardness": "310 ～ 360",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "35SiMn 调质",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "750",
+      "Yield": "450",
+      "CoreHardness": "217 ～ 269",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "38SiMnMo 调质",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "700",
+      "Yield": "550",
+      "CoreHardness": "217 ～ 269",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "40Cr 调质",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "700",
+      "Yield": "500",
+      "CoreHardness": "241 ～ 286",
+      "Notes": "项目齿轮材料表。参考表列出代用钢 40MnB、40MnVB。"
+    },
+    "Hardness": 240,
+    "Contact": 600,
+    "Bending": 180,
+    "Source": "插件原设计默认值，使用前按工况核定"
+  },
+  {
+    "Name": "45 调质后表面淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "CoreHardness": "217 ～ 255",
+      "SurfaceHardness": "40 ～ 50 HRC",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "40Cr 调质后表面淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "CoreHardness": "241 ～ 286",
+      "SurfaceHardness": "48 ～ 55 HRC",
+      "Notes": "项目齿轮材料表。参考表列出代用钢 40MnB、40MnVB。"
+    }
+  },
+  {
+    "Name": "20Cr 渗碳后淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "650",
+      "Yield": "400",
+      "CoreHardness": "300",
+      "SurfaceHardness": "58 ～ 62 HRC",
+      "Notes": "项目齿轮材料表。参考表列出代用钢 20Mn2B、20MnVB。"
+    },
+    "Hardness": 300
+  },
+  {
+    "Name": "20CrMnTi 渗碳后淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "1100",
+      "Yield": "850",
+      "CoreHardness": "300",
+      "SurfaceHardness": "58 ～ 62 HRC",
+      "Notes": "项目齿轮材料表。参考表列出代用钢 20Mn2B、20MnVB。"
+    },
+    "Hardness": 300
+  },
+  {
+    "Name": "12Cr2Ni4 渗碳后淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "1100",
+      "Yield": "850",
+      "CoreHardness": "320",
+      "SurfaceHardness": "58 ～ 62 HRC",
+      "Notes": "项目齿轮材料表。"
+    },
+    "Hardness": 320
+  },
+  {
+    "Name": "20Cr2Ni4 渗碳后淬火",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "1200",
+      "Yield": "1100",
+      "CoreHardness": "350",
+      "SurfaceHardness": "58 ～ 62 HRC",
+      "Notes": "项目齿轮材料表。"
+    },
+    "Hardness": 350
+  },
+  {
+    "Name": "35CrAlA 调质后氮化",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "950",
+      "Yield": "750",
+      "CoreHardness": "255 ～ 321",
+      "SurfaceHardness": "> 850 HV",
+      "Notes": "项目齿轮材料表。原图在热处理栏另列氮化层厚 δ≥0.3 mm、0.5 mm。"
+    }
+  },
+  {
+    "Name": "38CrMoAlA 调质后氮化",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Tensile": "1000",
+      "Yield": "850",
+      "CoreHardness": "255 ～ 321",
+      "SurfaceHardness": "> 850 HV",
+      "Notes": "项目齿轮材料表。原图在热处理栏另列氮化层厚 δ≥0.3 mm、0.5 mm。"
+    }
+  },
+  {
+    "Name": "夹布胶木",
+    "Use": "齿轮",
+    "GearKind": "非金属（仅参考）",
+    "Reference": {
+      "Tensile": "100",
+      "CoreHardness": "25 ～ 35",
+      "Notes": "项目齿轮材料表。"
+    }
+  },
+  {
+    "Name": "40MnB",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Notes": "项目齿轮材料表列为 40Cr 的代用钢，表中未列独立性能值。"
+    }
+  },
+  {
+    "Name": "40MnVB",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Notes": "项目齿轮材料表列为 40Cr 的代用钢，表中未列独立性能值。"
+    }
+  },
+  {
+    "Name": "20Mn2B",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Notes": "项目齿轮材料表列为 20Cr 或 20CrMnTi 的代用钢，表中未列独立性能值。"
+    }
+  },
+  {
+    "Name": "20MnVB",
+    "Use": "齿轮",
+    "GearKind": "锻钢",
+    "Reference": {
+      "Notes": "项目齿轮材料表列为 20Cr 或 20CrMnTi 的代用钢，表中未列独立性能值。"
+    }
+  },
+  {
+    "Name": "Q235A",
+    "Use": "轴",
+    "Shear": 20.0,
+    "A0": 137.5,
+    "ShaftStress": 40,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "15 ～ 25",
+      "A0Range": "126 ～ 149",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "S20",
+    "Use": "轴",
+    "Shear": 20.0,
+    "A0": 137.5,
+    "ShaftStress": 120,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。许用弯扭 120 MPa 为项目原值，应用前核对依据。",
+    "Reference": {
+      "ShearRange": "15 ～ 25",
+      "A0Range": "126 ～ 149",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。许用弯扭 120 MPa 为项目原值，应用前核对依据。"
+    }
+  },
+  {
+    "Name": "Q275",
+    "Use": "轴",
+    "Shear": 27.5,
+    "A0": 123.5,
+    "ShaftStress": 50,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "20 ～ 35",
+      "A0Range": "112 ～ 135",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "S35",
+    "Use": "轴",
+    "Shear": 27.5,
+    "A0": 123.5,
+    "ShaftStress": 55,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "20 ～ 35",
+      "A0Range": "112 ～ 135",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "1Cr18Ni9Ti",
+    "Use": "轴",
+    "Shear": 27.5,
+    "A0": 123.5,
+    "ShaftStress": 45,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "20 ～ 35",
+      "A0Range": "112 ～ 135",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "S45",
+    "Use": "轴",
+    "Shear": 35.0,
+    "A0": 114.5,
+    "ShaftStress": 60,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "25 ～ 45",
+      "A0Range": "103 ～ 126",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "40Cr",
+    "Use": "轴",
+    "Shear": 45.0,
+    "A0": 104.5,
+    "ShaftStress": 70,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "35 ～ 55",
+      "A0Range": "97 ～ 112",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "35SiMn",
+    "Use": "轴",
+    "Shear": 45.0,
+    "A0": 104.5,
+    "ShaftStress": 70,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "35 ～ 55",
+      "A0Range": "97 ～ 112",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "38SiMnMo",
+    "Use": "轴",
+    "Shear": 45.0,
+    "A0": 104.5,
+    "ShaftStress": 70,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "35 ～ 55",
+      "A0Range": "97 ～ 112",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "3Cr13",
+    "Use": "轴",
+    "Shear": 45.0,
+    "A0": 104.5,
+    "ShaftStress": 75,
+    "Source": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。",
+    "Reference": {
+      "ShearRange": "35 ～ 55",
+      "A0Range": "97 ～ 112",
+      "Notes": "项目轴材料参数表，剪切应力与 A₀ 按一般载荷取范围中值。"
+    }
+  },
+  {
+    "Name": "Q235A 热轧或锻后空冷（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "Tensile": "400 ～ 420",
+      "Yield": "225",
+      "BendingFatigue": "170",
+      "ShearFatigue": "105",
+      "AllowableBending": "40",
+      "Notes": "项目轴材料表 15-1。用于不重要及受载荷不大的轴"
+    }
+  },
+  {
+    "Name": "Q235A 热轧或锻后空冷（> 100 ～ 250 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 250",
+      "Tensile": "375 ～ 390",
+      "Yield": "215",
+      "BendingFatigue": "170",
+      "ShearFatigue": "105",
+      "AllowableBending": "40",
+      "Notes": "项目轴材料表 15-1。用于不重要及受载荷不大的轴"
+    }
+  },
+  {
+    "Name": "45 正火（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "170 ～ 217",
+      "Tensile": "590",
+      "Yield": "295",
+      "BendingFatigue": "255",
+      "ShearFatigue": "140",
+      "AllowableBending": "55",
+      "Notes": "项目轴材料表 15-1。应用最广泛"
+    }
+  },
+  {
+    "Name": "45 正火（> 100 ～ 300 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 300",
+      "CoreHardness": "162 ～ 217",
+      "Tensile": "570",
+      "Yield": "285",
+      "BendingFatigue": "245",
+      "ShearFatigue": "135",
+      "AllowableBending": "55",
+      "Notes": "项目轴材料表 15-1。应用最广泛"
+    }
+  },
+  {
+    "Name": "45 调质（≤ 200 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 200",
+      "CoreHardness": "217 ～ 255",
+      "Tensile": "640",
+      "Yield": "355",
+      "BendingFatigue": "275",
+      "ShearFatigue": "155",
+      "AllowableBending": "60",
+      "Notes": "项目轴材料表 15-1。应用最广泛"
+    }
+  },
+  {
+    "Name": "40Cr 调质（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "241 ～ 286",
+      "Tensile": "735",
+      "Yield": "540",
+      "BendingFatigue": "355",
+      "ShearFatigue": "200",
+      "AllowableBending": "70",
+      "Notes": "项目轴材料表 15-1。用于载荷较大，而无很大冲击的重要轴"
+    }
+  },
+  {
+    "Name": "40Cr 调质（> 100 ～ 300 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 300",
+      "CoreHardness": "241 ～ 286",
+      "Tensile": "685",
+      "Yield": "490",
+      "BendingFatigue": "335",
+      "ShearFatigue": "185",
+      "AllowableBending": "70",
+      "Notes": "项目轴材料表 15-1。用于载荷较大，而无很大冲击的重要轴"
+    }
+  },
+  {
+    "Name": "40CrNi 调质（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "270 ～ 300",
+      "Tensile": "900",
+      "Yield": "735",
+      "BendingFatigue": "430",
+      "ShearFatigue": "260",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于很重要的轴"
+    }
+  },
+  {
+    "Name": "40CrNi 调质（> 100 ～ 300 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 300",
+      "CoreHardness": "240 ～ 270",
+      "Tensile": "785",
+      "Yield": "570",
+      "BendingFatigue": "370",
+      "ShearFatigue": "210",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于很重要的轴"
+    }
+  },
+  {
+    "Name": "38SiMnMo 调质（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "229 ～ 286",
+      "Tensile": "735",
+      "Yield": "590",
+      "BendingFatigue": "365",
+      "ShearFatigue": "210",
+      "AllowableBending": "70",
+      "Notes": "项目轴材料表 15-1。用于重要的轴，性能近于 40CrNi"
+    }
+  },
+  {
+    "Name": "38SiMnMo 调质（> 100 ～ 300 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 300",
+      "CoreHardness": "217 ～ 269",
+      "Tensile": "685",
+      "Yield": "540",
+      "BendingFatigue": "345",
+      "ShearFatigue": "195",
+      "AllowableBending": "70",
+      "Notes": "项目轴材料表 15-1。用于重要的轴，性能近于 40CrNi"
+    }
+  },
+  {
+    "Name": "38CrMoAlA 调质（≤ 60 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 60",
+      "CoreHardness": "293 ～ 321",
+      "Tensile": "930",
+      "Yield": "785",
+      "BendingFatigue": "440",
+      "ShearFatigue": "280",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于要求高耐磨性、高强度且热处理（氮化）变形很小的轴"
+    }
+  },
+  {
+    "Name": "38CrMoAlA 调质（> 60 ～ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 60 ～ 100",
+      "CoreHardness": "277 ～ 302",
+      "Tensile": "835",
+      "Yield": "685",
+      "BendingFatigue": "410",
+      "ShearFatigue": "270",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于要求高耐磨性、高强度且热处理（氮化）变形很小的轴"
+    }
+  },
+  {
+    "Name": "38CrMoAlA 调质（> 100 ～ 160 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 160",
+      "CoreHardness": "241 ～ 277",
+      "Tensile": "785",
+      "Yield": "590",
+      "BendingFatigue": "375",
+      "ShearFatigue": "220",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于要求高耐磨性、高强度且热处理（氮化）变形很小的轴"
+    }
+  },
+  {
+    "Name": "20Cr 渗碳淬火回火（≤ 60 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 60",
+      "Tensile": "640",
+      "Yield": "390",
+      "BendingFatigue": "305",
+      "ShearFatigue": "160",
+      "AllowableBending": "60",
+      "SurfaceHardness": "渗碳 56 ～ 62 HRC",
+      "Notes": "项目轴材料表 15-1。用于要求强度及韧性均较高的轴"
+    }
+  },
+  {
+    "Name": "3Cr13 调质（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "≥ 241",
+      "Tensile": "835",
+      "Yield": "635",
+      "BendingFatigue": "395",
+      "ShearFatigue": "230",
+      "AllowableBending": "75",
+      "Notes": "项目轴材料表 15-1。用于腐蚀条件下的轴"
+    }
+  },
+  {
+    "Name": "1Cr18Ni9Ti 淬火（≤ 100 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "≤ 100",
+      "CoreHardness": "≤ 192",
+      "Tensile": "530",
+      "Yield": "195",
+      "BendingFatigue": "190",
+      "ShearFatigue": "115",
+      "AllowableBending": "45",
+      "Notes": "项目轴材料表 15-1。用于高、低温及腐蚀条件下的轴"
+    }
+  },
+  {
+    "Name": "1Cr18Ni9Ti 淬火（> 100 ～ 200 mm）",
+    "Use": "轴",
+    "Reference": {
+      "BlankDiameter": "> 100 ～ 200",
+      "CoreHardness": "≤ 192",
+      "Tensile": "490",
+      "Yield": "195",
+      "BendingFatigue": "180",
+      "ShearFatigue": "110",
+      "AllowableBending": "45",
+      "Notes": "项目轴材料表 15-1。用于高、低温及腐蚀条件下的轴"
+    }
+  },
+  {
+    "Name": "QT600-3",
+    "Use": "轴",
+    "Reference": {
+      "CoreHardness": "190 ～ 270",
+      "Tensile": "600",
+      "Yield": "370",
+      "BendingFatigue": "215",
+      "ShearFatigue": "185",
+      "Notes": "项目轴材料表 15-1。用于制造复杂外形的轴"
+    }
+  },
+  {
+    "Name": "QT800-2",
+    "Use": "轴",
+    "Reference": {
+      "CoreHardness": "245 ～ 335",
+      "Tensile": "800",
+      "Yield": "480",
+      "BendingFatigue": "290",
+      "ShearFatigue": "250",
+      "Notes": "项目轴材料表 15-1。用于制造复杂外形的轴"
+    }
+  },
+  {
+    "Name": "HT200",
+    "Use": "箱体",
+    "Reference": {
+      "Notes": "项目箱体材料选项。"
+    }
+  },
+  {
+    "Name": "HT250",
+    "Use": "箱体",
+    "Reference": {
+      "Notes": "项目箱体材料选项。"
+    }
+  },
+  {
+    "Name": "QT500-7",
+    "Use": "箱体",
+    "Reference": {
+      "Notes": "项目箱体材料选项。"
+    }
+  }
+]

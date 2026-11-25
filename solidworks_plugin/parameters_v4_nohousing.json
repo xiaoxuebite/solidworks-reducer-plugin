@@ -1,0 +1,626 @@
+{
+  "schema_version": 4,
+  "units": "mm",
+  "source": "model_generator/shaft_params.py + export_housing + export_auxiliary",
+  "shaft_segments": [
+    {
+      "diameter": 25.0,
+      "length": 25.0
+    },
+    {
+      "diameter": 28.0,
+      "length": 24.0
+    },
+    {
+      "diameter": 32.0,
+      "length": 10.0
+    },
+    {
+      "diameter": 25.0,
+      "length": 15.5
+    },
+    {
+      "diameter": 22.0,
+      "length": 20.0
+    },
+    {
+      "diameter": 17.0,
+      "length": 33.0
+    }
+  ],
+  "keyways": [
+    {
+      "segment_index": 1,
+      "start": 29.0,
+      "length": 20.0,
+      "width": 6.0,
+      "depth": 3.5,
+      "diameter": 28.0
+    },
+    {
+      "segment_index": 5,
+      "start": 98.5,
+      "length": 20.0,
+      "width": 5.0,
+      "depth": 3.0,
+      "diameter": 17.0
+    }
+  ],
+  "blank_cover": {
+    "outer_diameter": 55.0,
+    "step_diameter": 52,
+    "inner_recess_diameter": 34.0,
+    "total_thickness": 7.0,
+    "step_height": 4.0,
+    "recess_depth": 0.5
+  },
+  "high_blank_cover": {
+    "outer_diameter": 38.0,
+    "step_diameter": 35,
+    "inner_recess_diameter": 24.0,
+    "total_thickness": 7.0,
+    "step_height": 4.0,
+    "recess_depth": 0.5
+  },
+  "accessories": [
+    {
+      "name": "sleeve",
+      "outer_diameter": 38.0,
+      "inner_diameter": 25,
+      "thickness": 10.0,
+      "chamfer": 0.5
+    },
+    {
+      "name": "low_adjusting_ring",
+      "outer_diameter": 52,
+      "inner_diameter": 40.0,
+      "thickness": 5.0,
+      "chamfer": 0
+    },
+    {
+      "name": "high_adjusting_ring",
+      "outer_diameter": 35,
+      "inner_diameter": 25.0,
+      "thickness": 5.0,
+      "chamfer": 0
+    }
+  ],
+  "through_covers": [
+    {
+      "name": "low_through_cover",
+      "outer_steps": [
+        [
+          48.0,
+          3.0
+        ],
+        [
+          52,
+          4.0
+        ],
+        [
+          55.0,
+          3.0
+        ],
+        [
+          52,
+          4.5
+        ]
+      ],
+      "inner_steps": [
+        [
+          24.0,
+          23.0,
+          0.5
+        ],
+        [
+          23.0,
+          23.0,
+          3.5
+        ],
+        [
+          23.0,
+          28.0,
+          0.5
+        ],
+        [
+          28.0,
+          28.0,
+          3.0
+        ],
+        [
+          28.0,
+          23.0,
+          0.5
+        ],
+        [
+          23.0,
+          23.0,
+          4.5
+        ],
+        [
+          23.0,
+          35.0,
+          2.0
+        ],
+        [
+          35.0,
+          39.0,
+          2.0
+        ]
+      ],
+      "seal_bore_diameter": 22.0,
+      "seal_shaft_segment_index": 4
+    },
+    {
+      "name": "high_through_cover",
+      "outer_steps": [
+        [
+          31.0,
+          3.0
+        ],
+        [
+          35,
+          4.0
+        ],
+        [
+          38.0,
+          3.0
+        ],
+        [
+          35,
+          5.0
+        ]
+      ],
+      "inner_steps": [
+        [
+          16.0,
+          16.0,
+          8.0
+        ],
+        [
+          16.0,
+          21.0,
+          0.5
+        ],
+        [
+          21.0,
+          21.0,
+          2.0
+        ],
+        [
+          21.0,
+          16.0,
+          0.5
+        ],
+        [
+          16.0,
+          16.0,
+          3.0
+        ],
+        [
+          22.0,
+          24.0,
+          1.0
+        ]
+      ],
+      "seal_bore_diameter": 12.0,
+      "seal_shaft_segment_index": null
+    }
+  ],
+  "rotary_parts": [
+    {
+      "name": "oil_retaining_ring",
+      "section": [
+        [
+          1.0,
+          7.5
+        ],
+        [
+          4.0,
+          7.5
+        ],
+        [
+          4.0,
+          11.5
+        ],
+        [
+          3.0,
+          12.5
+        ],
+        [
+          3.0,
+          17.5
+        ],
+        [
+          0.0,
+          17.5
+        ],
+        [
+          0.0,
+          13.5
+        ],
+        [
+          1.0,
+          12.5
+        ]
+      ]
+    }
+  ],
+  "assembly_layout": {
+    "low_center_x": 23.5,
+    "high_center_x": -35.5,
+    "axis_height": 66.0,
+    "boss_depth": 98.0,
+    "mesh_center_y": 0.0,
+    "low_bearing_width": 15,
+    "high_bearing_width": 11,
+    "source": "parametric_cover_start.py / parametric_housing_start.py / parametric_reducer_assembly.py"
+  },
+  "gears": {
+    "module": 2.0,
+    "pressure_angle": 20.0,
+    "helix_angle": 0.0,
+    "pinion_teeth": 17,
+    "driven_teeth": 42,
+    "driven_width": 24.0,
+    "driven_bore": 28.0,
+    "driven_key_width": 6.0,
+    "driven_key_depth": 3.5,
+    "driven_mesh_phase_deg": -2.142857142857143,
+    "high_sections": [
+      {
+        "kind": "cylinder",
+        "diameter": 12.0,
+        "length": 37.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 15.0,
+        "length": 14.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 14.0,
+        "length": 2.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 19.0,
+        "length": 6.0
+      },
+      {
+        "kind": "gear",
+        "diameter": 29.0,
+        "length": 32.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 19.0,
+        "length": 6.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 14.0,
+        "length": 2.0
+      },
+      {
+        "kind": "cylinder",
+        "diameter": 15.0,
+        "length": 13.0
+      }
+    ],
+    "high_keyway": {
+      "segment_index": 0,
+      "diameter": 12.0,
+      "start": 4.0,
+      "length": 18.0,
+      "width": 5.0,
+      "depth": 3.0
+    }
+  },
+  "bearings": [
+    {
+      "name": "high_bearing",
+      "catalog_name": "6202",
+      "inner_diameter": 15.0,
+      "outer_diameter": 35.0,
+      "width": 11.0
+    },
+    {
+      "name": "low_bearing",
+      "catalog_name": "6205",
+      "inner_diameter": 25.0,
+      "outer_diameter": 52.0,
+      "width": 15.0
+    }
+  ],
+  "auxiliary": [
+    {
+      "name": "key_driven_gear",
+      "kind": "key",
+      "length": 20.0,
+      "width": 6.0,
+      "height": 6.0,
+      "start_x": 29.0,
+      "start_z": 10.5,
+      "shaft_link": "low",
+      "segment_index": 1,
+      "start_offset": 4.0,
+      "shaft_diameter": 28.0,
+      "shaft_slot_depth": 3.5,
+      "placement": [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        23.5,
+        37.0,
+        66.0
+      ],
+      "reference_volume_mm3": 673.6460032938488
+    },
+    {
+      "name": "key_driven_outer",
+      "kind": "key",
+      "length": 20.0,
+      "width": 5.0,
+      "height": 5.0,
+      "start_x": 98.5,
+      "start_z": 5.5,
+      "shaft_link": "low",
+      "segment_index": 5,
+      "start_offset": 4.0,
+      "shaft_diameter": 17.0,
+      "shaft_slot_depth": 3.0,
+      "placement": [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        23.5,
+        37.0,
+        66.0
+      ],
+      "reference_volume_mm3": 473.17477042468107
+    },
+    {
+      "name": "key_drive_outer",
+      "kind": "key",
+      "length": 18.0,
+      "width": 5.0,
+      "height": 5.0,
+      "start_x": 4.0,
+      "start_z": 3.0,
+      "shaft_link": "high",
+      "segment_index": 0,
+      "start_offset": 4.0,
+      "shaft_diameter": 12.0,
+      "shaft_slot_depth": 3.0,
+      "placement": [
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -35.5,
+        75.0,
+        66.0
+      ],
+      "reference_volume_mm3": 423.17477042468107
+    },
+    {
+      "name": "inspection_cover",
+      "kind": "plate",
+      "length": 36.0,
+      "width": 34.0,
+      "height": 3.0,
+      "corner_radius": 3.0,
+      "hole_diameter": 3.2,
+      "hole_pitch_x": 28.0,
+      "hole_pitch_y": 28.0,
+      "inner_square": 0.0,
+      "placement": [
+        0.979097838239741,
+        0,
+        0.2033898305084746,
+        0,
+        1,
+        0,
+        -0.2033898305084746,
+        0,
+        0.979097838239741,
+        -16.008474576271187,
+        0,
+        120.60575640571741
+      ],
+      "reference_volume_mm3": 3552.313275328646
+    },
+    {
+      "name": "inspection_cover_gasket",
+      "kind": "plate",
+      "length": 36.0,
+      "width": 34.0,
+      "height": 0.5,
+      "corner_radius": 3.0,
+      "hole_diameter": 3.2,
+      "hole_pitch_x": 28.0,
+      "hole_pitch_y": 28.0,
+      "inner_square": 23.0,
+      "placement": [
+        0.979097838239741,
+        0,
+        0.2033898305084746,
+        0,
+        1,
+        0,
+        -0.2033898305084746,
+        0,
+        0.979097838239741,
+        -15.90677966101695,
+        0,
+        120.11620748659755
+      ],
+      "reference_volume_mm3": 327.5522125547743
+    },
+    {
+      "name": "vent_plug",
+      "kind": "vent",
+      "section": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          12,
+          9.5
+        ],
+        [
+          20,
+          9.5
+        ],
+        [
+          22,
+          11.5
+        ],
+        [
+          29,
+          11.5
+        ],
+        [
+          30,
+          10.5
+        ],
+        [
+          30,
+          0
+        ]
+      ],
+      "axial_hole_profile": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1.5
+        ],
+        [
+          20,
+          1.5
+        ],
+        [
+          21,
+          0
+        ]
+      ],
+      "side_hole_diameter": 3.0,
+      "side_hole_x": 17.0,
+      "side_hole_depth": 9.7,
+      "placement": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        23.5,
+        0.0,
+        119.0
+      ],
+      "notes": "Source THREAD_RADIUS/HEIGHT is a plain cylinder; helical/cosmetic thread is not added.",
+      "reference_volume_mm3": 6921.368260926501
+    },
+    {
+      "name": "oil_level_cover",
+      "kind": "oil_cover",
+      "outer_arc_radius": 30.0,
+      "inner_arc_radius": 27.0,
+      "outer_arc_height": 13.5,
+      "inner_arc_height": 6.0,
+      "right_vertical_x": 18.0,
+      "upper_step_length": 10.0,
+      "lower_return_length": 4.0,
+      "drop_1": 3.5,
+      "drop_2": 2.5,
+      "drop_3": 1.5,
+      "hex_diameter": 27.0,
+      "hex_offset": 2.0,
+      "placement": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        -93.9,
+        0,
+        22
+      ],
+      "reference_volume_mm3": 4696.3815818158555
+    },
+    {
+      "name": "oil_level_indicator",
+      "kind": "indicator",
+      "inner_diameter": 11.0,
+      "outer_diameter": 15.0,
+      "height": 4.0,
+      "front_thickness": 1.5,
+      "scallop_radius": 4.0,
+      "placement": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        -79.9,
+        0,
+        22
+      ],
+      "reference_volume_mm3": 422.34181189455455
+    }
+  ]
+}

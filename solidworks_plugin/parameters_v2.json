@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "units": "mm",
+  "source": "model_generator/shaft_params.py",
+  "shaft_segments": [
+    {
+      "diameter": 25.0,
+      "length": 25.0
+    },
+    {
+      "diameter": 28.0,
+      "length": 24.0
+    },
+    {
+      "diameter": 32.0,
+      "length": 10.0
+    },
+    {
+      "diameter": 25.0,
+      "length": 15.5
+    },
+    {
+      "diameter": 22.0,
+      "length": 20.0
+    },
+    {
+      "diameter": 17.0,
+      "length": 33.0
+    }
+  ],
+  "keyways": [
+    {
+      "start": 29.0,
+      "length": 20.0,
+      "width": 6.0,
+      "depth": 3.5,
+      "diameter": 28.0
+    },
+    {
+      "start": 98.5,
+      "length": 20.0,
+      "width": 5.0,
+      "depth": 3.0,
+      "diameter": 17.0
+    }
+  ],
+  "blank_cover": {
+    "outer_diameter": 55.0,
+    "step_diameter": 52,
+    "inner_recess_diameter": 34.0,
+    "total_thickness": 7.0,
+    "step_height": 4.0,
+    "recess_depth": 0.5
+  },
+  "high_blank_cover": {
+    "outer_diameter": 38.0,
+    "step_diameter": 35,
+    "inner_recess_diameter": 24.0,
+    "total_thickness": 7.0,
+    "step_height": 4.0,
+    "recess_depth": 0.5
+  },
+  "accessories": [
+    {
+      "name": "sleeve",
+      "outer_diameter": 38.0,
+      "inner_diameter": 25,
+      "thickness": 10.0,
+      "chamfer": 0.5
+    },
+    {
+      "name": "low_adjusting_ring",
+      "outer_diameter": 52,
+      "inner_diameter": 40.0,
+      "thickness": 5.0,
+      "chamfer": 0
+    },
+    {
+      "name": "high_adjusting_ring",
+      "outer_diameter": 35,
+      "inner_diameter": 25.0,
+      "thickness": 5.0,
+      "chamfer": 0
+    }
+  ]
+}

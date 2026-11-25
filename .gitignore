@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv*/
+.env
+.env.*
+*.db
+*.log
+solidworks_plugin/bin/
+solidworks_plugin/output/
+solidworks_plugin/design_projects/
+solidworks_plugin/parameter_sets/
+solidworks_plugin/.bridge/
+solidworks_plugin/.tmp/
+solidworks_plugin/latest-build.txt

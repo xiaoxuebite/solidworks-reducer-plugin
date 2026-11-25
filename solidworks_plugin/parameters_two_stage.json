@@ -1,0 +1,124 @@
+{
+  "schema_version": 5,
+  "units": "mm",
+  "two_stage": {
+    "hardware_version": 2,
+    "shafts": [
+      {
+        "name": "input",
+        "center_x": 203.375,
+        "origin_y": 198.1,
+        "axis_direction": -1,
+        "sections": [
+          {"kind": "cylinder", "diameter": 20, "length": 29},
+          {"kind": "cylinder", "diameter": 26, "length": 9},
+          {"kind": "gear", "diameter": 33.125, "length": 40},
+          {"kind": "cylinder", "diameter": 26, "length": 83},
+          {"kind": "cylinder", "diameter": 20, "length": 29},
+          {"kind": "cylinder", "diameter": 17.76, "length": 50},
+          {"kind": "cylinder", "diameter": 14.8, "length": 22}
+        ],
+        "keyways": [
+          {"start": 242, "length": 18, "width": 4, "depth": 2, "diameter": 14.8}
+        ]
+      },
+      {
+        "name": "intermediate",
+        "center_x": 114,
+        "origin_y": 7.47,
+        "axis_direction": 1,
+        "sections": [
+          {"kind": "cylinder", "diameter": 25, "length": 41},
+          {"kind": "cylinder", "diameter": 30, "length": 60},
+          {"kind": "cylinder", "diameter": 36, "length": 14.5},
+          {"kind": "cylinder", "diameter": 30, "length": 34.25},
+          {"kind": "cylinder", "diameter": 25, "length": 41.5}
+        ],
+        "keyways": [
+          {"start": 45, "length": 50, "width": 8, "depth": 3.3, "diameter": 30},
+          {"start": 117, "length": 30, "width": 8, "depth": 3.3, "diameter": 30}
+        ]
+      },
+      {
+        "name": "output",
+        "center_x": 0,
+        "origin_y": 335.72,
+        "axis_direction": -1,
+        "sections": [
+          {"kind": "cylinder", "diameter": 40, "length": 82},
+          {"kind": "cylinder", "diameter": 44, "length": 50},
+          {"kind": "cylinder", "diameter": 45, "length": 34},
+          {"kind": "cylinder", "diameter": 52, "length": 52.75},
+          {"kind": "cylinder", "diameter": 58, "length": 12},
+          {"kind": "cylinder", "diameter": 50, "length": 55},
+          {"kind": "cylinder", "diameter": 45, "length": 47.5}
+        ],
+        "keyways": [
+          {"start": 10, "length": 50, "width": 12, "depth": 4, "diameter": 40},
+          {"start": 235, "length": 45, "width": 14, "depth": 4.5, "diameter": 50}
+        ]
+      }
+    ],
+    "high_pair": {
+      "module": 1.25,
+      "pressure_angle": 20,
+      "pinion_teeth": 29,
+      "wheel_teeth": 114,
+      "pinion_width": 40,
+      "wheel_width": 36.25,
+      "pinion_start_y": 120.1,
+      "wheel_start_y": 122.97,
+      "integral_pinion": true,
+      "pinion_phase_deg": 0,
+      "wheel_phase_deg": 1.5789473684210527,
+      "wheel_bore": 30,
+      "wheel_key_width": 8,
+      "wheel_key_depth": 4.62
+    },
+    "low_pair": {
+      "module": 1.5,
+      "pressure_angle": 20,
+      "pinion_teeth": 38,
+      "wheel_teeth": 114,
+      "pinion_width": 62,
+      "wheel_width": 57,
+      "pinion_start_y": 46.47,
+      "wheel_start_y": 47.97,
+      "integral_pinion": false,
+      "pinion_bore": 30,
+      "pinion_key_width": 8,
+      "pinion_key_depth": 5,
+      "wheel_bore": 50,
+      "wheel_key_width": 14,
+      "wheel_key_depth": 7,
+      "pinion_phase_deg": 0,
+      "wheel_phase_deg": 1.5789473684210527
+    },
+    "bearings": [
+      {"name": "input", "catalog_name": "6204", "inner_diameter": 20, "outer_diameter": 47, "width": 14, "front_y": 15, "rear_y": 183},
+      {"name": "intermediate", "catalog_name": "6205", "inner_diameter": 25, "outer_diameter": 52, "width": 15, "front_y": 15, "rear_y": 183},
+      {"name": "output", "catalog_name": "6209", "inner_diameter": 45, "outer_diameter": 85, "width": 19, "front_y": 12, "rear_y": 182}
+    ],
+    "housing": {
+      "x_min": -117,
+      "x_max": 252,
+      "y_min": -5,
+      "y_max": 220,
+      "axis_height": 105,
+      "upper_height": 105,
+      "floor_thickness": 10,
+      "roof_thickness": 10,
+      "side_wall": 12,
+      "front_wall": 40,
+      "rear_wall": 40
+    },
+    "end_cover_thickness": 8,
+    "reference_files": [
+    ],
+    "limitations": [
+      "箱体为可编辑的简化分箱体，已加入标准件所需法兰、螺孔和检查孔，尚未复制参考铸件的全部加强肋与油路。",
+      "端盖为参数化简化外形；三轴、两级渐开线齿轮、轴承和键为原生特征。",
+      "总装仅下箱体固定，其余组件由同心、重合、距离及两级齿轮运动配合定位；尚未进行整机干涉校核。"
+    ]
+  }
+}
