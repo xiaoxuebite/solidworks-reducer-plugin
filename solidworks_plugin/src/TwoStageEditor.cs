@@ -19,8 +19,10 @@ namespace ReducerSW {
         readonly TabControl tabs=new TabControl{Dock=DockStyle.Fill};
         readonly List<DataGridView> grids=new List<DataGridView>();
         public string SnapshotPath {get;private set;}
+        public string ModelOutputRoot {get;private set;}
         public bool AddAssemblyMates {get{return addMates.Checked;}}
-        public TwoStageEditor(string file) {
+        public TwoStageEditor(string file) : this(file,false) {}
+        public TwoStageEditor(string file,bool chooseOutputDirectory) {
             SuspendLayout();
             ToolbarIcons.ApplyWindowIcon(this);
             Text="二级减速器 — 参数化建模";
@@ -50,7 +52,13 @@ namespace ReducerSW {
                     source=PrettyJson(new JavaScriptSerializer().Serialize(p));RefreshTables();UpdateSummary(p);
                 }catch(Exception ex){MessageBox.Show(this,ex.Message,"同步中心距");}};
             save.Click+=(s,e)=>{try{Parse();using(var picker=new SaveFileDialog{Filter="参数文件 (*.json)|*.json",FileName="two_stage_parameters.json"})if(picker.ShowDialog(this)==DialogResult.OK)File.WriteAllText(picker.FileName,source);}catch(Exception ex){MessageBox.Show(this,ex.Message,"参数校验");}};
-            generate.Click+=(s,e)=>{try{Parse();string folder=Path.Combine(Generator.ProjectRoot(),"parameter_sets");Directory.CreateDirectory(folder);
+            generate.Click+=(s,e)=>{try{
+                    Parse();
+                    if(chooseOutputDirectory) {
+                        ModelOutputRoot=Generator.ChooseOutputDirectory(this,"选择模型保存目录。零件和总装会保存在新的子文件夹中。",Path.Combine(Generator.ProjectRoot(),"output"));
+                        if(ModelOutputRoot==null)return;
+                    }
+                    string folder=Path.Combine(Generator.ProjectRoot(),"parameter_sets");Directory.CreateDirectory(folder);
                     SnapshotPath=Path.Combine(folder,"two_stage_"+DateTime.Now.ToString("yyyyMMdd_HHmmss_fff")+"_"+Guid.NewGuid().ToString("N").Substring(0,6)+".json");
                     File.WriteAllText(SnapshotPath,source);DialogResult=DialogResult.OK;Close();
                 }catch(Exception ex){MessageBox.Show(this,ex.Message,"参数校验");}};

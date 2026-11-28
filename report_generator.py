@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import math
 import re
 import time
@@ -435,7 +435,6 @@ def generate_reducer_report_markdown(project, design, output_path, image_path=No
     project_author = project.get("author") or "-"
     project_date = project.get("date") or "-"
     project_comment = project.get("comment") or "-"
-    project_id = project.get("project_id") or project.get("id") or "-"
     now = time.strftime("%Y-%m-%d %H:%M:%S")
     gear_design_method = selections.get("gearDesignMethod") or "bending"
     gear_design_method_label = "按齿面接触强度设计" if gear_design_method == "contact" else "按齿根弯曲强度设计"
@@ -456,7 +455,6 @@ def generate_reducer_report_markdown(project, design, output_path, image_path=No
             ["项目编号", project_number],
             ["作者", project_author],
             ["日期", project_date],
-            ["项目ID", project_id],
             ["导出时间", now],
             ["项目备注", project_comment],
         ]),

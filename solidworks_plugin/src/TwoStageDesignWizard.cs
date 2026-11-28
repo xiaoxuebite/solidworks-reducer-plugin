@@ -184,7 +184,8 @@ namespace ReducerSW {
         Dictionary<string,object> Project(){if(String.IsNullOrWhiteSpace(projectName.Text))throw new ArgumentException("项目名称不能为空。");
             return new Dictionary<string,object>{{"name",projectName.Text.Trim()},{"designer",designer.Text.Trim()},{"number",projectNumber.Text.Trim()},{"notes",notes.Text},{"date",DateTime.Now.ToString("yyyy-MM-dd")}};}
         string WorkFolder(){if(workFolder==null){workFolder=Path.Combine(Generator.ProjectRoot(),"design_projects",DateTime.Now.ToString("yyyyMMdd_HHmmss_fff")+"_two_"+Guid.NewGuid().ToString("N").Substring(0,6));}return workFolder;}
-        Dictionary<string,object> Request(string action){return new Dictionary<string,object>{{"action",action},{"project",Project()},{"parameters",Collect()},{"output_dir",WorkFolder()}};}
+        Dictionary<string,object> Request(string action){return RequestForOutput(action,null);}
+        Dictionary<string,object> RequestForOutput(string action,string outputDirectory){return new Dictionary<string,object>{{"action",action},{"project",Project()},{"parameters",Collect()},{"output_dir",outputDirectory??WorkFolder()}};}
         void RunBridge(Dictionary<string,object> request,string message,Action<Dictionary<string,object>> completed){if(busy)return;SetBusy(true,message);
             var worker=new BackgroundWorker();worker.DoWork+=(s,e)=>e.Result=bridge(request);worker.RunWorkerCompleted+=(s,e)=>{SetBusy(false,"操作完成。");
                 try{if(e.Error!=null)throw e.Error;var response=(Dictionary<string,object>)e.Result;if(!Flag(response,"ok"))throw new ArgumentException(Display(Get(response,"error")));completed(response);}
@@ -240,16 +241,23 @@ namespace ReducerSW {
             if(key.EndsWith("coefficient_domain"))return label+"公式适用范围";return key;}
         void RequireCurrent(){foreach(var grid in inputs)grid.EndEdit();if(dirty||design==null)throw new InvalidOperationException("参数已更改或尚未计算，请先重新计算与校核。");
             if(!Flag(design,"system_checks_passed"))throw new InvalidOperationException("当前存在未通过的校核，请查看第 7 步。");}
-        void Prepare(bool generate){try{RequireCurrent();RunBridge(Request("two_export"),"正在保存已校核的二级建模方案…",response=>{
+        void Prepare(bool generate){if(busy)return;try{RequireCurrent();
+            string modelRoot=null;
+            if(generate) {
+                if(app==null)throw new InvalidOperationException("请打开 SolidWorks 2024 后重新进入二级设计窗口生成原生模型。");
+                modelRoot=Generator.ChooseOutputDirectory(this,"选择模型保存目录。零件和总装会保存在新的子文件夹中。",Path.Combine(Generator.ProjectRoot(),"output"));
+                if(modelRoot==null)return;
+            }
+            RunBridge(Request("two_export"),"正在保存已校核的二级建模方案…",response=>{
             ApplyDesign(Map(Get(response,"design")),true);modelFile=Convert.ToString(Get(response,"model_parameters_file"));
             if(String.IsNullOrWhiteSpace(modelFile)||!File.Exists(modelFile))throw new FileNotFoundException("模型参数未保存。");
             Generator.Validate(json.Deserialize<Parameters>(File.ReadAllText(modelFile)));
             Render();RenderArtifacts();navigation.SelectedIndex=7;
-            if(generate)GenerateNative();else status.Text="二级建模方案已保存。";});}catch(Exception error){Error(error);}}
+            if(generate)GenerateNative(modelRoot);else status.Text="二级建模方案已保存。";});}catch(Exception error){Error(error);}}
         bool closeAfterGeneration;
-        void GenerateNative(){if(app==null)throw new InvalidOperationException("请打开 SolidWorks 2024 后重新进入二级设计窗口生成原生模型。");
+        void GenerateNative(string modelRoot){
             RequireCurrent();SetBusy(true,"正在生成三轴、两级齿轮和原生总装…");try{
-                outputFolder=Generator.Generate(app,modelFile,Path.Combine(Generator.ProjectRoot(),"output"),addMates.Checked);
+                outputFolder=Generator.Generate(app,modelFile,modelRoot,addMates.Checked);
                 Render();RenderArtifacts();status.Text=addMates.Checked?"二级减速器零件与配合总装已生成。":"二级总装已生成，零件按计算位置固定。";
             }catch(OperationCanceledException ex) {
                 status.Text=ex.Message;
@@ -257,7 +265,10 @@ namespace ReducerSW {
                 SetBusy(false,status.Text);
                 if(closeAfterGeneration) {closeAfterGeneration=false;BeginInvoke((Action)Close);}
             }}
-        void Report(){try{RequireCurrent();RunBridge(Request("two_report"),"正在生成二级设计说明书…",response=>{
+        void Report(){if(busy)return;try{RequireCurrent();
+            string root=Generator.ChooseOutputDirectory(this,"选择说明书保存目录。说明书会保存在新的子文件夹中。",Path.Combine(Generator.ProjectRoot(),"design_projects"));
+            if(root==null)return;
+            RunBridge(RequestForOutput("two_report",Generator.ReportOutputDirectory(root)),"正在生成二级设计说明书…",response=>{
             ApplyDesign(Map(Get(response,"design")),true);modelFile=Convert.ToString(Get(response,"model_parameters_file"));reportFile=Convert.ToString(Get(response,"report_file"));
             if(!File.Exists(reportFile))throw new FileNotFoundException("未找到设计说明书。");
             Render();RenderArtifacts();status.Text="说明书已生成。";});}catch(Exception error){Error(error);}}

@@ -152,15 +152,15 @@ class Launcher
                 }
                 var source=new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Parameters>(File.ReadAllText(path));
                 if(source.schema_version==5) {
-                    using(var editor=new TwoStageEditor(path))if(editor.ShowDialog()==System.Windows.Forms.DialogResult.OK) {
-                        string output=Generator.Generate(app,editor.SnapshotPath,Path.Combine(root,"output"),editor.AddAssemblyMates);
+                    using(var editor=new TwoStageEditor(path,true))if(editor.ShowDialog()==System.Windows.Forms.DialogResult.OK) {
+                        string output=Generator.Generate(app,editor.SnapshotPath,editor.ModelOutputRoot,editor.AddAssemblyMates);
                         Console.WriteLine(output);
                         string mode=editor.AddAssemblyMates?"含装配配合":"零件已按计算位置固定";
                         System.Windows.Forms.MessageBox.Show("二级减速器原生零件与总装已保存（"+mode+"）。"+System.Environment.NewLine+output,"减速器生成器");
                     }
-                } else using(var editor=new ParameterEditor(path)) {
+                } else using(var editor=new ParameterEditor(path,true)) {
                     if(editor.ShowDialog()==System.Windows.Forms.DialogResult.OK) {
-                        string output=Generator.Generate(app,editor.SnapshotPath,Path.Combine(root,"output"),editor.AddAssemblyMates);
+                        string output=Generator.Generate(app,editor.SnapshotPath,editor.ModelOutputRoot,editor.AddAssemblyMates);
                         Console.WriteLine(output);
                         string mode=editor.AddAssemblyMates?"含装配配合":"零件已按计算位置固定";
                         System.Windows.Forms.MessageBox.Show("一级减速器原生零件与总装已保存（"+mode+"）。"+System.Environment.NewLine+output,"减速器生成器");

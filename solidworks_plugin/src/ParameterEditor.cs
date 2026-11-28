@@ -13,6 +13,7 @@ namespace ReducerSW {
         readonly DataGridView highShaft=Grid(), highKeys=Grid(), gearData=Grid(), bearingData=Grid();
         readonly CheckBox addMates=CreateMateOption(DockStyle.Bottom);
         public string SnapshotPath {get; private set;}
+        public string ModelOutputRoot {get; private set;}
         public bool AddAssemblyMates {get{return addMates.Checked;}}
         internal static CheckBox CreateMateOption(DockStyle dock) {
             return new CheckBox{Text="添加装配配合（取消勾选时按计算位置固定零件）",
@@ -31,7 +32,8 @@ namespace ReducerSW {
             if(!Double.TryParse(Convert.ToString(grid.Rows[row].Cells[column].Value),out value) || Double.IsNaN(value) || Double.IsInfinity(value)) throw new ArgumentException("请检查“"+grid.Columns[column].HeaderText+"”第 "+(row+1)+" 行的数值。");
             return value;
         }
-        public ParameterEditor(string file) {
+        public ParameterEditor(string file) : this(file,false) {}
+        public ParameterEditor(string file,bool chooseOutputDirectory) {
             parameters=new JavaScriptSerializer().Deserialize<Parameters>(File.ReadAllText(file));
             Generator.Validate(parameters);
             SuspendLayout();
@@ -126,7 +128,18 @@ namespace ReducerSW {
             var cancel=ActionButton("取消",100);cancel.DialogResult=DialogResult.Cancel;
             var generate=ActionButton("生成模型",125);
             var save=ActionButton("另存参数",125);
-            generate.Click+=(s,e)=>{try { Commit(); SnapshotPath=Snapshot(); DialogResult=DialogResult.OK; Close(); }catch(Exception ex){MessageBox.Show(this,ex.Message,"参数检查");}};
+            generate.Click+=(s,e)=>{
+                try {
+                    Commit();
+                    if(chooseOutputDirectory) {
+                        ModelOutputRoot=Generator.ChooseOutputDirectory(this,"选择模型保存目录。零件和总装会保存在新的子文件夹中。",Path.Combine(Generator.ProjectRoot(),"output"));
+                        if(ModelOutputRoot==null)return;
+                    }
+                    SnapshotPath=Snapshot();
+                    DialogResult=DialogResult.OK;
+                    Close();
+                }catch(Exception ex){MessageBox.Show(this,ex.Message,"参数检查");}
+            };
             save.Click+=(s,e)=>{try {Commit(); using(var dialog=new SaveFileDialog{Filter="参数文件 (*.json)|*.json",FileName="reducer_parameters.json"}) if(dialog.ShowDialog(this)==DialogResult.OK) File.WriteAllText(dialog.FileName,new JavaScriptSerializer().Serialize(parameters));}catch(Exception ex){MessageBox.Show(this,ex.Message,"参数检查");}};
             actions.Controls.Add(cancel); actions.Controls.Add(generate); actions.Controls.Add(save);
             Controls.Add(tabs); Controls.Add(note); Controls.Add(addMates); Controls.Add(actions); CancelButton=cancel;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -76,6 +76,7 @@ namespace ReducerSW {
                 if(designWindow!=null){designWindow.Dispose();designWindow=null;}
                 string root=Generator.ProjectRoot(),latest=Path.Combine(root,"latest-build.txt");
                 string build=File.Exists(latest)?File.ReadAllText(latest).Trim():Path.GetDirectoryName(BuildLocation());
+                if(!Path.IsPathRooted(build))build=Path.Combine(root,build);
                 string launcher=Path.Combine(build,"ReducerLauncher.exe");
                 if(!File.Exists(launcher))throw new FileNotFoundException("设计入口不完整，请重新运行 build.ps1。",launcher);
                 // CreateNoWindow suppresses the console. The design form itself
@@ -136,7 +137,7 @@ namespace ReducerSW {
         }
         public static string ProjectRoot() {
             var folder=new DirectoryInfo(Path.GetDirectoryName(typeof(Generator).Assembly.Location));
-            while(folder!=null) { if(Directory.Exists(Path.Combine(folder.FullName,"src"))) return folder.FullName; folder=folder.Parent; }
+            while(folder!=null) { if(File.Exists(Path.Combine(folder.FullName,"design_bridge.py"))) return folder.FullName; folder=folder.Parent; }
             throw new Exception("Cannot locate plugin project folder.");
         }
         static double M(double mm) { return mm / 1000.0; }
@@ -333,6 +334,18 @@ namespace ReducerSW {
                 if(chamfer==null) throw new Exception("轴套倒角创建失败。");ModelPresentation.NameCreated(chamfer,"EndChamfers");
             }
             string path=Path.Combine(output,r.name+".SLDPRT");return SaveWithMetrics(app,doc,path,metrics);
+        }
+        internal static string ChooseOutputDirectory(IWin32Window owner,string description,string initialDirectory) {
+            using(var dialog=new FolderBrowserDialog {
+                Description=description,
+                SelectedPath=Directory.Exists(initialDirectory)?initialDirectory:Path.GetDirectoryName(initialDirectory),
+                ShowNewFolderButton=true
+            }) {
+                return dialog.ShowDialog(owner)==DialogResult.OK?dialog.SelectedPath:null;
+            }
+        }
+        internal static string ReportOutputDirectory(string parentDirectory) {
+            return Path.Combine(parentDirectory,"说明书_"+DateTime.Now.ToString("yyyyMMdd_HHmmss_fff")+"_"+Guid.NewGuid().ToString("N").Substring(0,6));
         }
         public static string Generate(SldWorks app,string parameterFile,string outputRoot) {
             return Generate(app,parameterFile,outputRoot,true);

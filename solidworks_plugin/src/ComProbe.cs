@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using SolidWorks.Interop.sldworks;
 class ComProbe {
@@ -17,7 +18,10 @@ class ComProbe {
                 var sw=(SldWorks)Marshal.GetActiveObject("SldWorks.Application");sw.SetUserPreferenceToggle(10,true);return 0;
             }
             dynamic obj=Activator.CreateInstance(Type.GetTypeFromProgID("ReducerSW.Addin",true));
-            Console.WriteLine("COM activation OK: "+obj.BuildLocation()); return 0;
+            string location = obj.BuildLocation();
+            if (args.Length > 0 && !String.Equals(Path.GetFullPath(args[0]), Path.GetFullPath(location), StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("COM loaded an unexpected add-in: " + location);
+            Console.WriteLine("COM activation OK: " + location); return 0;
         } catch(Exception ex) { Console.WriteLine(ex.ToString()); return 1; }
     }
 }

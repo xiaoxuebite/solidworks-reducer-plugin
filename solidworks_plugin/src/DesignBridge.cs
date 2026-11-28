@@ -42,6 +42,11 @@ namespace ReducerSW {
                 WorkingDirectory=root,UseShellExecute=false,CreateNoWindow=true,WindowStyle=ProcessWindowStyle.Hidden,
                 RedirectStandardOutput=true,RedirectStandardError=true,StandardOutputEncoding=Encoding.UTF8,StandardErrorEncoding=Encoding.UTF8};
             start.EnvironmentVariables["PYTHONIOENCODING"]="utf-8";start.EnvironmentVariables["PYTHONUTF8"]="1";
+            string runtime=Path.Combine(root,"runtime");
+            if(Directory.Exists(runtime)) {
+                string existing=start.EnvironmentVariables["PYTHONPATH"];
+                start.EnvironmentVariables["PYTHONPATH"]=String.IsNullOrEmpty(existing)?runtime:runtime+Path.PathSeparator+existing;
+            }
             string stdout="",stderr="";int exitCode;
             try {
                 using(var process=Process.Start(start)) {

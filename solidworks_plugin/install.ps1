@@ -6,8 +6,16 @@ if (!$principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 $latest = Join-Path $PSScriptRoot 'latest-build.txt'
 if (!(Test-Path -LiteralPath $latest)) { & (Join-Path $PSScriptRoot 'build.ps1') }
-$build = [IO.File]::ReadAllText($latest).Trim()
-$dll = [IO.File]::ReadAllText((Join-Path $build 'addin-dll.txt')).Trim()
+. (Join-Path $PSScriptRoot 'build-paths.ps1')
+$build = Read-PluginPath $latest
+$dll = Read-PluginPath (Join-Path $build 'addin-dll.txt')
+$probe = Join-Path $build 'ComProbe.exe'
+if (!(Test-Path -LiteralPath $probe)) {
+    $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
+    $interop = Join-Path $build 'SolidWorks.Interop.sldworks.dll'
+    & $compiler /nologo /platform:x64 /reference:Microsoft.CSharp.dll /reference:$interop /out:$probe (Join-Path $PSScriptRoot 'src\ComProbe.cs')
+    if ($LASTEXITCODE -ne 0) { throw 'COM diagnostic compilation failed.' }
+}
 $regasm = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\RegAsm.exe'
 & $regasm $dll /codebase /nologo
 if ($LASTEXITCODE -ne 0) { throw 'COM registration failed.' }
@@ -54,12 +62,7 @@ Set-Item -LiteralPath $key -Value 0
 New-ItemProperty -LiteralPath $key -Name Title -Value 'Reducer Generator' -PropertyType String -Force | Out-Null
 New-ItemProperty -LiteralPath $key -Name Description -Value 'Native reducer prototype for SOLIDWORKS 2024' -PropertyType String -Force | Out-Null
 # A separate process without a reference to the add-in tests actual COM activation.
-$compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
-$probe = Join-Path $build 'ComProbe.exe'
-$interop = Join-Path $build 'SolidWorks.Interop.sldworks.dll'
-& $compiler /nologo /platform:x64 /reference:Microsoft.CSharp.dll /reference:$interop /out:$probe (Join-Path $PSScriptRoot 'src\ComProbe.cs')
-if ($LASTEXITCODE -ne 0) { throw 'COM diagnostic compilation failed.' }
-& $probe
+& $probe $dll
 if ($LASTEXITCODE -ne 0) { throw 'COM activation test failed. Installation is not complete.' }
 Write-Host 'Installed. In your normal session, run run.ps1 -LoadPlugin. If needed, save your work and restart SOLIDWORKS, then enable Reducer Generator in Tools > Add-ins.'
 Write-Host "Verified machine registration: $dll"

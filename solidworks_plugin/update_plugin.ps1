@@ -1,6 +1,7 @@
 $ErrorActionPreference = 'Stop'
-$build = [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'latest-build.txt')).Trim()
-$dll = [IO.File]::ReadAllText((Join-Path $build 'addin-dll.txt')).Trim()
+. (Join-Path $PSScriptRoot 'build-paths.ps1')
+$build = Read-PluginPath (Join-Path $PSScriptRoot 'latest-build.txt')
+$dll = Read-PluginPath (Join-Path $build 'addin-dll.txt')
 if (!(Test-Path -LiteralPath $dll)) { throw "Plugin build is missing: $dll" }
 $principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 $installer = Join-Path $PSScriptRoot 'install.ps1'

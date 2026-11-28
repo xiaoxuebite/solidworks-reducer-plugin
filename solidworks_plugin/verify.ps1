@@ -1,9 +1,10 @@
 param([string]$OutputDirectory, [string]$BuildDirectory)
 $ErrorActionPreference = 'Stop'
-$build = if ($BuildDirectory) { [IO.Path]::GetFullPath($BuildDirectory) } else { [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'latest-build.txt')).Trim() }
+. (Join-Path $PSScriptRoot 'build-paths.ps1')
+$build = if ($BuildDirectory) { [IO.Path]::GetFullPath($BuildDirectory) } else { Read-PluginPath (Join-Path $PSScriptRoot 'latest-build.txt') }
 $launcher = Join-Path $build 'ReducerLauncher.exe'
 $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
-$addin = [IO.File]::ReadAllText((Join-Path $build 'addin-dll.txt')).Trim()
+$addin = Read-PluginPath (Join-Path $build 'addin-dll.txt')
 $pauseTest = Join-Path $build 'GenerationControlSmoke.exe'
 & $compiler /nologo /platform:x64 /reference:System.Windows.Forms.dll /reference:System.Drawing.dll /reference:$addin /out:$pauseTest /win32manifest:"$PSScriptRoot\src\Launcher.manifest" (Join-Path $PSScriptRoot 'tests\GenerationControlSmoke.cs')
 if ($LASTEXITCODE -ne 0) { throw 'Pause test compilation failed.' }

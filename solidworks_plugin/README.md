@@ -6,6 +6,8 @@
 
 ## 环境与安装
 
+普通使用者可从 [GitHub Releases](https://github.com/xiaoxuebite/solidworks-reducer-plugin/releases) 获取预编译 ZIP。解压后按包内 README 操作。以下步骤适用于从源码编译。源码版的一键卸载入口为 `卸载插件.cmd`，运行前先关闭 SOLIDWORKS 和设计窗口。
+
 - Windows、64 位 SOLIDWORKS、.NET Framework 4.x。`build.ps1` 默认从 `C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS` 读取 SolidWorks API；安装位置不同时传入 `-SolidWorksDir`。
 - 插件基于 **SOLIDWORKS 2024 SP5.0** 开发和验证。建议使用 **SOLIDWORKS 2024 或更新版本**，优先选用已验证的 2024 SP5.0。使用更新版本时，请先编译插件并用样例确认能正常加载和建模。
 - 设计计算使用本项目根目录的 Python 代码及依赖。建议 Python 3.12；可将 `REDUCER_SW_PYTHON` 设为解释器完整路径。只做设计、保存项目或生成说明书时，可以不启动 SolidWorks；生成原生模型时必须启动。

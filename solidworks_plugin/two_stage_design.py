@@ -216,7 +216,7 @@ def _native_validation(model):
     latest = PLUGIN / "latest-build.txt"
     if not latest.is_file():
         return False, "未找到插件构建，请先运行 build.ps1。"
-    launcher = Path(latest.read_text(encoding="utf-8-sig").strip()) / "ReducerLauncher.exe"
+    launcher = latest.parent / latest.read_text(encoding="utf-8-sig").strip() / "ReducerLauncher.exe"
     if not launcher.is_file():
         return False, "未找到当前构建的 ReducerLauncher.exe。"
     with tempfile.TemporaryDirectory(prefix="two-stage-check-") as folder:

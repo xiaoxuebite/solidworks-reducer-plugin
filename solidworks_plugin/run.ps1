@@ -1,6 +1,7 @@
 param([switch]$LoadPlugin, [switch]$RefreshParameters, [switch]$Editor, [switch]$Design, [switch]$TwoDesign, [string]$ParameterFile)
 $ErrorActionPreference = 'Stop'
 try {
+    . (Join-Path $PSScriptRoot 'build-paths.ps1')
     $latest = Join-Path $PSScriptRoot 'latest-build.txt'
     if (!(Test-Path -LiteralPath $latest)) { & (Join-Path $PSScriptRoot 'build.ps1') }
     if ($ParameterFile) { $parameters = [IO.Path]::GetFullPath($ParameterFile) }
@@ -20,7 +21,7 @@ try {
         & $python (Join-Path $PSScriptRoot $exporter) --output $parameters
         if ($LASTEXITCODE -ne 0) { throw 'Parameter export failed.' }
     }
-    $build = [IO.File]::ReadAllText($latest).Trim()
+    $build = Read-PluginPath $latest
     $launcher = Join-Path $build 'ReducerLauncher.exe'
     if ($Design) { & $launcher --design } elseif ($TwoDesign) { & $launcher --two-design } elseif ($LoadPlugin) { & $launcher --load } elseif ($Editor) { & $launcher --editor $parameters } else { & $launcher $parameters }
     if ($LASTEXITCODE -ne 0) { throw 'SOLIDWORKS operation failed; see the error above.' }

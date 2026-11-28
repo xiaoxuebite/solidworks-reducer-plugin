@@ -5,6 +5,10 @@
 `solidworks_plugin/` 包含插件源码、构建脚本和样例。根目录的 Python 文件及 `model_generator/` 中的计算模块为插件提供参数计算与说明书功能，原生模型由 SOLIDWORKS API 生成。
 
 
+## 下载使用版
+
+从 [GitHub Releases](https://github.com/xiaoxuebite/solidworks-reducer-plugin/releases) 下载 Windows x64 预编译 ZIP。完整解压到当前账号可写的目录，再按包内 README 安装。需要 Python 3.12，Pillow 已随包提供。安装和卸载入口分别为 `setup.cmd` 和 `uninstall.cmd`。
+
 ## 从源码安装
 
 安装环境为 Windows、64 位 SOLIDWORKS、.NET Framework 4.x 和 Python 3.12。插件基于 **SOLIDWORKS 2024 SP5.0** 开发和验证。建议使用 **SOLIDWORKS 2024 或更新版本**，优先选用已验证的 2024 SP5.0。使用更新版本时，请先编译插件并用样例确认能正常加载和建模。请保留完整项目目录，插件需要读取其中的 Python 计算模块、样例参数和参考图表。

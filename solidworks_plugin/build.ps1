@@ -1,4 +1,4 @@
-param([string]$SolidWorksDir = 'C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS', [switch]$NoPromote)
+param([string]$SolidWorksDir = 'E:\Program Files\SOLIDWORKS Corp24\SOLIDWORKS', [switch]$NoPromote)
 $ErrorActionPreference = 'Stop'
 $redist = Join-Path $SolidWorksDir 'api\redist'
 $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
@@ -25,6 +25,8 @@ $iconType.GetMethod('WriteApplicationIcon', [Reflection.BindingFlags]'NonPublic,
 & $compiler /nologo /target:exe /platform:x64 /out:"$bin\ReducerLauncher.exe" /win32manifest:"$PSScriptRoot\src\Launcher.manifest" /win32icon:$appIcon @refArgs /reference:$addinDll "$PSScriptRoot\src\Launcher.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Launcher compilation failed' }
 Copy-Item -LiteralPath "$PSScriptRoot\src\Launcher.config" -Destination "$bin\ReducerLauncher.exe.config"
+& $compiler /nologo /platform:x64 /out:"$bin\ComProbe.exe" @refArgs "$PSScriptRoot\src\ComProbe.cs"
+if ($LASTEXITCODE -ne 0) { throw 'COM diagnostic compilation failed' }
+[IO.File]::WriteAllText((Join-Path $bin 'addin-dll.txt'), $addinDll)
 Write-Host "Built: $bin"
 if (!$NoPromote) { [IO.File]::WriteAllText((Join-Path $PSScriptRoot 'latest-build.txt'), $bin) }
-[IO.File]::WriteAllText((Join-Path $bin 'addin-dll.txt'), $addinDll)
